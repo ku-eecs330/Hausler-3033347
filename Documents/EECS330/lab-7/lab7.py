@@ -10,10 +10,8 @@ class HashMap:
         index = self._hash_function(key)
         for i, (existing_key, existing_value) in enumerate(self.hash_table[index]):
             if existing_key == key:
-                # If the key already exists, update the value
                 self.hash_table[index][i] = (key, value)
                 return
-        # If the key doesn't exist, add a new key-value pair
         self.hash_table[index].append((key, value))
 
     def get(self, key):
@@ -21,7 +19,6 @@ class HashMap:
         for existing_key, existing_value in self.hash_table[index]:
             if existing_key == key:
                 return existing_value
-        # If the key doesn't exist, return None or raise an exception as needed
 
     def remove(self, key):
         index = self._hash_function(key)
@@ -29,7 +26,6 @@ class HashMap:
             if existing_key == key:
                 del self.hash_table[index][i]
                 return
-        # If the key doesn't exist, handle it as needed (e.g., return None or raise an exception)
 
     def display(self):
         return self.hash_table
@@ -51,7 +47,6 @@ def max_passengers_in_flight(flight_nodes, flight_number):
 
     return max_trip_id, max_passengers
 
-# Example usage:
 my_hash_map = HashMap(7)
 my_hash_map.put("aaa", 0)
 my_hash_map.put("bbb", 1)
@@ -63,17 +58,14 @@ my_hash_map.put("ggg", 36)
 my_hash_map.put("hhh", 49)
 my_hash_map.display()
 
-# Retrieve values
 print("Retrieve values:")
 print("aaa:", my_hash_map.get("aaa"))  
 print("bbb:", my_hash_map.get("bbb"))
 print("ccc:", my_hash_map.get("ccc"))
 
-# Remove a key-value pair
 my_hash_map.remove("bbb")  
 my_hash_map.display()
 
-# Max Passengers on Trip
 flight_nodes = [
     FlightNode(16, "Trip 1", 300),
     FlightNode(16, "Trip 2", 700),
